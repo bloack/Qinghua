@@ -1,0 +1,60 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#import "MessageDisplayKit.h"
+#import <ASIHTTPRequest/ASIHTTPRequest.h>
+#import <FMDB/FMDB.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "LCAppDelegate.h"
+#import "GlobalData.h"
+#import "Default.h"
+#import "OperationalDatabase.h"
+#import "XmppService.h"
+#import "RequestCenter.h"
+
+#import "DrawHelper.h"
+#import "SystemManager.h"
+#import "APService.h"
+#import "NSString+Addition.h"
+#import "SVPullToRefresh.h"
+#import "NetWork.h"
+#import "UrlHeaders.h"
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define Left_Brackets @"["
+#define Right_Brackets @"]"
+/**
+ *  jid 域名  和 user_name拼接
+ */
+#define JID_END @"@www.qinghuaceo.com"
+
+
+#define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
+#define ADJUST_HEIGHT (IOS7?20:0)
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define CREAT_COLOR(R,G,B,ALPHA) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:ALPHA]
+
+#define String(x) [NSString stringWithFormat:@"%d",x]
+
+#define IPHONE5 SCREEN_HEIGHT == 568
+
+#endif
+#ifdef __OPTIMIZE__
+# define NSLog(...) {}
+#else
+# define NSLog(...) NSLog(__VA_ARGS__)
+#endif
